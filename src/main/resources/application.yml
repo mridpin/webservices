@@ -2,7 +2,12 @@ logging:
   level:
     org.springframework: info
 
-
 spring:
   messages:
     basename: messages
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
