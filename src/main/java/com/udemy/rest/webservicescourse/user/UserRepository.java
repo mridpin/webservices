@@ -10,49 +10,49 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UserRepository {
-    private static List<User> users = new ArrayList<>();
-    Integer userCount = 4;
+	private static List<User> users = new ArrayList<>();
+	Integer userCount = 4;
 
-    static {
-      users.add(new User(1, "Lion El Johnson", new Date()));
-      users.add(new User(3, "Fulgrim", new Date()));
-      users.add(new User(4, "Perturabo", new Date()));
-    }
+	static {
+		users.add(new User(1, "Malacara", new Date()));
+		users.add(new User(3, "Mapshito", new Date()));
+		users.add(new User(4, "Sheste", new Date()));
+	}
 
-    public List<User> findAll() {
-      List<User> users = this.users;
-      return users;
-    }
+	public List<User> findAll() {
+		List<User> users = this.users;
+		return users;
+	}
 
-  public User findById(Integer id) {
-    for (User user : users) {
-      if (user.getId() == id) {
-        return user;
-      }
-    }
-    throw new UserNotFoundException("User " + id + " not found");
-  }
+	public User findById(Integer id) {
+		for (User user : users) {
+			if (user.getId() == id) {
+				return user;
+			}
+		}
+		throw new UserNotFoundException("User " + id + " not found");
+	}
 
-  public User createUser(User user) {
-    try {
-      user.setId(++userCount);
-      users.add(user);
-      return user;
-    } catch (NullPointerException nullp) {
-      throw new UserIsNullException("User cannot be empty");
-    }
-  }
+	public User createUser(User user) {
+		try {
+			user.setId(++userCount);
+			users.add(user);
+			return user;
+		} catch (NullPointerException nullp) {
+			throw new UserIsNullException("User cannot be empty");
+		}
+	}
 
-  public User deleteById(Integer id) {
-    Iterator<User> userIterator = users.iterator();
-    while (userIterator.hasNext()) {
-      User user = userIterator.next();
-      if (user.getId().equals(id)) {
-        userIterator.remove();
-        return user;
-      }
-    }
-    throw new UserNotFoundException("User " + id + " not found");
-  }
+	public User deleteById(Integer id) {
+		Iterator<User> userIterator = users.iterator();
+		while (userIterator.hasNext()) {
+			User user = userIterator.next();
+			if (user.getId().equals(id)) {
+				userIterator.remove();
+				return user;
+			}
+		}
+		throw new UserNotFoundException("User " + id + " not found");
+	}
 
 }
