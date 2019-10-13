@@ -18,8 +18,6 @@ public class PraiseTheEmperorBean {
 
   @Override
   public String toString() {
-    return "PraiseTheEmperorBean{" +
-        "message='" + message + '\'' +
-        '}';
+    return "PraiseTheEmperorBean{" + "message='" + message + '\'' + '}';
   }
 }

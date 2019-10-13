@@ -6,6 +6,5 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
 public class UserIsNullException extends RuntimeException {
 
-    public UserIsNullException(String user_cannot_be_empty) {
-    }
+  public UserIsNullException(String user_cannot_be_empty) {}
 }

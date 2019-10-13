@@ -5,6 +5,15 @@ logging:
 spring:
   messages:
     basename: messages
+  security:
+    user:
+      name: ridao
+      password: password
+  jpa:
+    show-sql: true
+  h2:
+    console:
+      enabled: true
 
 management:
   endpoints:
